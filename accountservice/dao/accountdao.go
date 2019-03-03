@@ -14,13 +14,13 @@ import (
 )
 
 // DBNAME Database name
-const DBNAME = "account"
+const DBNAME = "masonjar"
 
 // COLLECTION Collection name
-const COLLECTION = "accounts"
+const COLLECTION = "user"
 
 // CONNECTIONSTRING DB connection string
-const CONNECTIONSTRING = "mongodb://root:4mErAmlAb!@ds139775.mlab.com:39775/account"
+const CONNECTIONSTRING = "mongodb://root:4mErAmlAb!@ds119930.mlab.com:19930/masonjar"
 
 var db *mongo.Database
 

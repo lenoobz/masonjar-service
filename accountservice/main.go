@@ -5,14 +5,15 @@
 package main
 
 import (
-	"fmt"
+	"log"
 
-	"github.com/letrong/masonjar-service/accountservice/service"
+	"github.com/letrong/masonjar-service/accountservice/cmd"
 )
 
 var appName = "accountService"
 
 func main() {
-	fmt.Printf("Starting %s\n", appName)
-	service.StartWebServer("6767")
+	if err := cmd.RootCommand().Execute(); err != nil {
+		log.Fatal(err)
+	}
 }

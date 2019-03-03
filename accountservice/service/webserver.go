@@ -5,20 +5,24 @@
 package service
 
 import (
-	"log"
+	"fmt"
 	"net/http"
+
+	"github.com/Sirupsen/logrus"
+	"github.com/letrong/masonjar-service/accountservice/conf"
 )
 
 // StartWebServer : Start web server
-func StartWebServer(port string) {
+func StartWebServer(config *conf.Config, logger *logrus.Entry) {
 	r := NewRouter()
 	http.Handle("/", r)
 
-	log.Println("Start HTTP service at port " + port)
-	err := http.ListenAndServe(":"+port, nil)
+	port := fmt.Sprintf(":%d", config.Port)
+	logger.Infof("Listen to port %s. Running ...", port)
+	err := http.ListenAndServe(port, nil)
 
 	if err != nil {
-		log.Println("An error occured starting HTTP listener at port " + port)
-		log.Println("Error: " + err.Error())
+		logger.Errorf("An error occured starting HTTP listener at port %d", config.Port)
+		logger.Errorf("Error: " + err.Error())
 	}
 }
