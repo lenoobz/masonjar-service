@@ -9,7 +9,7 @@ import (
 
 	"github.com/letrong/masonjar-service/accountservice/conf"
 	"github.com/letrong/masonjar-service/accountservice/service"
-	"github.com/letrong/masonjar-service/utilities"
+	"github.com/letrong/masonjar-service/accountservice/utilities"
 	"github.com/spf13/cobra"
 )
 
